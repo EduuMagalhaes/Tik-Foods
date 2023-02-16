@@ -1,4 +1,39 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+	background-color: rgb(65, 26, 26);
+	color: white;
+	max-width: 1200px;
+	margin: auto;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+.container-icon {
+}
+.social-midia {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-bottom: 8px;
+}
+
+.header-msg {
+	font-size: 1.5rem;
+	padding-bottom: 15px;
+	font-weight: 700;
+}
+.logo {
+	height: 120px;
+}
+
 .icon {
-  height: 24px;
-  width: 24px;
+	height: 30px;
+	width: 30px;
+	margin-right: 8px;
 }
