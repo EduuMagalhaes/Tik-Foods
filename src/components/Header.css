@@ -5,8 +5,6 @@
 	padding: 20px;
 	background-color: rgb(65, 26, 26);
 	color: white;
-	max-width: 1200px;
-	margin: auto;
 }
 
 .container {
@@ -28,7 +26,8 @@
 	cursor: pointer;
 }
 
-.social-midia:visited, .social-midia:link {
+.social-midia:visited,
+.social-midia:link {
 	color: white;
 }
 

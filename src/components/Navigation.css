@@ -1,0 +1,17 @@
+.nav-bar {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	padding: 20px;
+	font-size: 1.5rem;
+	font-weight: 700;
+	background-color: rgb(65, 26, 26);
+}
+
+.page-link {
+	color: #fff;
+}
+
+.-active {
+	color: black;
+}
