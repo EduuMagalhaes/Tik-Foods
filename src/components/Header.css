@@ -28,6 +28,10 @@
 	cursor: pointer;
 }
 
+.social-midia:visited, .social-midia:link {
+	color: white;
+}
+
 .header-msg {
 	font-size: 1.5rem;
 	padding-bottom: 15px;
