@@ -5,8 +5,6 @@ import './Navigation.css'
 function Navigation() {
 	const { pathname } = useLocation()
 
-	console.log(pathname)
-
 	return (
 		<nav className="nav-bar">
 			<Link
