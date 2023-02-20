@@ -3,8 +3,8 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 20px;
-	background-color: rgb(65, 26, 26);
-	color: white;
+	background-color: var(--yellow);
+	color: var(--purple);
 }
 
 .container {
@@ -28,7 +28,8 @@
 
 .social-midia:visited,
 .social-midia:link {
-	color: white;
+	color: var(--purple);
+	font-weight: 500;
 }
 
 .header-msg {
