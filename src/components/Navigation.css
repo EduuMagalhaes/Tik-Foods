@@ -2,16 +2,21 @@
 	width: 100%;
 	display: flex;
 	justify-content: space-around;
-	padding: 20px;
+
 	font-size: 1.5rem;
 	font-weight: 700;
-	background-color: rgb(65, 26, 26);
+	background-color: var(--yellow);
 }
 
 .page-link {
-	color: #fff;
+	flex: 1;
+	color: var(--purple);
+	text-align: center;
+	padding: 10px;
 }
 
 .-active {
-	color: black;
+	flex: 1;
+	color: var(--yellow);
+	background-color: var(--purple);
 }
