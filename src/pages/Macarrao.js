@@ -3,48 +3,25 @@ import Header from '../components/Header'
 import Navigation from '../components/Navigation'
 import './Macarrao.css'
 import pastaIcon from '../assets/pasta-icon.png'
-
-const pedidoMacarraoInicial = {
-	ingredientes: {
-		bacon: true,
-		calabresa: true,
-		frango: true,
-		salsicha: true,
-		cenoura: true,
-		cebola: true,
-		pimentao: true,
-		tomate: true,
-		mussarela: true,
-		milho: true,
-		molhoEspecial: true,
-	},
-	tamanho: 'grande',
-	observacao: '',
-}
-
-const ingredientesList = [
-	'bacon',
-	'calabresa',
-	'frango',
-	'salsicha',
-	'cenoura',
-	'cebola',
-	'pimentao',
-	'tomate',
-	'mussarela',
-	'milho',
-	'molhoespecial',
-]
+import  { macarraoIngredients, capitalizerFirstLetter, toCamelCase } from '../ultils/cardapio'
 
 function Macarrao() {
+	const pedidoMacarraoInicial = {
+		ingredientes: [],
+		tamanho: 'grande',
+		observacao: '',
+	}
+
 	const [pedidoMacarrao, setPedidoMacarrao] = useState(pedidoMacarraoInicial)
 
 	function listenCheckbox({ target }) {
-		const ingredientes = {
-			...pedidoMacarrao.ingredientes,
-			[target.id]: target.checked,
+		if(!target.checked) {
+			const ingredientes = [...pedidoMacarrao.ingredientes, target.id]
+			setPedidoMacarrao({ ...pedidoMacarrao, ingredientes })			
+		} else {
+			const ingredientes = pedidoMacarrao.ingredientes.filter((element) => element !== target.id)
+			setPedidoMacarrao({ ...pedidoMacarrao, ingredientes })	
 		}
-		setPedidoMacarrao({ ...pedidoMacarrao, ingredientes })
 	}
 
 	function listenRadio({ target }) {
@@ -67,22 +44,24 @@ function Macarrao() {
 				</div>
 				<h2>Ingredientes</h2>
 				<div className="ingredients">
-					{ingredientesList.map((element) => {
+					{macarraoIngredients.map((element) => {
+						const elementCamelized = toCamelCase(element)
+						const elementCapitalized = capitalizerFirstLetter(element)
 						return (
-							<div className="ingredients-wrapper" key={element}>
+							<div className="ingredients-wrapper" key={elementCamelized}>
 								<input
 									className="checkbox"
 									defaultChecked
 									type="checkbox"
-									id={element}
+									id={elementCamelized}
 									onChange={(element) => listenCheckbox(element)}
 								/>
 								<label
 									className="label-checkbox"
-									data-content={element}
-									htmlFor={element}
+									data-content={elementCapitalized}
+									htmlFor={elementCamelized}
 								>
-									{element}
+									{elementCapitalized}
 								</label>
 							</div>
 						)

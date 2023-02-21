@@ -5,17 +5,17 @@ const acaiIngredients = ['abacaxi', 'amendoim', 'aveia', 'banana', 'bis', 'canud
 
 const macarraoIngredients = ['bacon', 'calabresa', 'frango', 'salsicha', 'cenoura', 'cebola', 'pimentao', 'tomate', 'mussarela', 'milho', 'molho especial']
 
-function capitalizerFirstLetter(macarraoIngredients) {
-  return macarraoIngredients.map((word) => word.split(" ")
-    .map((element) => element[0].toUpperCase() + element.slice(1)).join(" "))
+function capitalizerFirstLetter(word) {
+  return word.split(" ").map((element) => element[0]
+    .toUpperCase() + element.slice(1)).join(" ")
 }
 
-function toCamelCase(macarraoIngredients) {
-  return macarraoIngredients.map((word) => word.split(" ")
-    .map((element, index) => index > 0 ? element[0].toUpperCase() + element.slice(1) : element).join(""))
+function toCamelCase(word) {
+  return word.split(" ").map((element, index) => index > 0 ? element[0]
+    .toUpperCase() + element.slice(1) : element).join("")
 }
 
-export default {
+export {
   acaiIngredients,
   macarraoIngredients,
   capitalizerFirstLetter,
