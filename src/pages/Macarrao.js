@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
 import Header from '../components/Header'
 import Navigation from '../components/Navigation'
-import './Macarrao.css'
+import './MenuPages.css'
 import pastaIcon from '../assets/pasta-icon.png'
-import  { macarraoIngredients, capitalizerFirstLetter, toCamelCase } from '../ultils/cardapio'
+import {
+	macarraoIngredients,
+	capitalizerFirstLetter,
+	toCamelCase,
+} from '../ultils/cardapio'
 
 function Macarrao() {
 	const pedidoMacarraoInicial = {
@@ -15,12 +19,14 @@ function Macarrao() {
 	const [pedidoMacarrao, setPedidoMacarrao] = useState(pedidoMacarraoInicial)
 
 	function listenCheckbox({ target }) {
-		if(!target.checked) {
+		if (!target.checked) {
 			const ingredientes = [...pedidoMacarrao.ingredientes, target.id]
-			setPedidoMacarrao({ ...pedidoMacarrao, ingredientes })			
+			setPedidoMacarrao({ ...pedidoMacarrao, ingredientes })
 		} else {
-			const ingredientes = pedidoMacarrao.ingredientes.filter((element) => element !== target.id)
-			setPedidoMacarrao({ ...pedidoMacarrao, ingredientes })	
+			const ingredientes = pedidoMacarrao.ingredientes.filter(
+				(element) => element !== target.id
+			)
+			setPedidoMacarrao({ ...pedidoMacarrao, ingredientes })
 		}
 	}
 

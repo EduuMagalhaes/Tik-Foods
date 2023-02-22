@@ -5,6 +5,7 @@
 	padding: 20px;
 	background-color: var(--yellow);
 	color: var(--purple);
+	white-space: nowrap;
 }
 
 .container {
@@ -45,4 +46,20 @@
 	height: 30px;
 	width: 30px;
 	margin-right: 8px;
+}
+
+@media screen and (max-width: 500px) {
+	.header {
+		padding: 20px 5px;
+	}
+	.header-msg {
+		font-size: 1rem;
+		align-self: flex-start;
+	}
+	.container-icon {
+		align-items: flex-start;
+	}
+	.logo {
+		height: 90px;
+	}
 }
