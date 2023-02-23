@@ -2,55 +2,58 @@ import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import Navigation from '../components/Navigation'
 import './MenuPages.css'
-import acaiIcon from '../assets/cupuacu.jpg'
+import cupuacuIcon from '../assets/cupuacu.jpg'
 import {
 	acaiIngredients,
 	capitalizerFirstLetter,
 	toCamelCase,
 } from '../ultils/cardapio'
+import SendButton from '../components/SendButton'
 
 function Cupuacu() {
-	const pedidoAcaiInicial = {
+	const pedidoCupuacuInicial = {
 		ingredientes: [],
 		tamanho: 'pequeno',
 		observacao: '',
 	}
 
-	const [pedidoAcai, setPedidoAcai] = useState(pedidoAcaiInicial)
+	const [pedidoCupuacu, setPedidoCupuacu] = useState(pedidoCupuacuInicial)
 	const [inputActive, setinputActive] = useState(true)
 
 	function listenCheckbox({ target }) {
 		if (target.checked) {
-			const ingredientes = [...pedidoAcai.ingredientes, target.id]
-			setPedidoAcai({ ...pedidoAcai, ingredientes })
+			const ingredientes = [...pedidoCupuacu.ingredientes, target.id]
+			setPedidoCupuacu({ ...pedidoCupuacu, ingredientes })
 		} else {
-			const ingredientes = pedidoAcai.ingredientes.filter(
+			const ingredientes = pedidoCupuacu.ingredientes.filter(
 				(element) => element !== target.id
 			)
-			setPedidoAcai({ ...pedidoAcai, ingredientes })
+			setPedidoCupuacu({ ...pedidoCupuacu, ingredientes })
 		}
 	}
 
 	function listenRadio({ target }) {
-		setPedidoAcai({ ...pedidoAcai, tamanho: target.value })
+		setPedidoCupuacu({ ...pedidoCupuacu, tamanho: target.value })
 	}
 
 	function listenTextArea({ target }) {
-		setPedidoAcai({ ...pedidoAcai, observacao: target.value })
+		setPedidoCupuacu({ ...pedidoCupuacu, observacao: target.value })
 	}
 
 	useEffect(() => {
-		const additionalLenth = pedidoAcai.ingredientes.length
-		const acaiSize = pedidoAcai.tamanho
-		if (acaiSize === 'pequeno' && additionalLenth > 2) setinputActive(false)
-		else if (acaiSize === 'medio' && additionalLenth > 4) setinputActive(false)
-		else if (acaiSize === 'grande' && additionalLenth > 7) setinputActive(false)
-		else if (acaiSize === 'extra-grande' && additionalLenth > 9)
+		const additionalLenth = pedidoCupuacu.ingredientes.length
+		const cupuacuSize = pedidoCupuacu.tamanho
+		if (cupuacuSize === 'pequeno' && additionalLenth > 2) setinputActive(false)
+		else if (cupuacuSize === 'medio' && additionalLenth > 4)
+			setinputActive(false)
+		else if (cupuacuSize === 'grande' && additionalLenth > 7)
+			setinputActive(false)
+		else if (cupuacuSize === 'extra-grande' && additionalLenth > 9)
 			setinputActive(false)
 		else {
 			setinputActive(true)
 		}
-	}, [pedidoAcai])
+	}, [pedidoCupuacu])
 
 	return (
 		<>
@@ -58,9 +61,9 @@ function Cupuacu() {
 			<Navigation />
 			<main className="menu-page">
 				<div className="tittle-wrapper">
-					<img className="menu-icon" src={acaiIcon} />
+					<img className="menu-icon" src={cupuacuIcon} />
 					<h1>Cupuacu </h1>
-					<img className="menu-icon" src={acaiIcon} />
+					<img className="menu-icon" src={cupuacuIcon} />
 				</div>
 				<h2>Adicionais</h2>
 				<div className="ingredients">
@@ -75,7 +78,7 @@ function Cupuacu() {
 									id={elementCamelized}
 									onChange={(element) => listenCheckbox(element)}
 									disabled={
-										pedidoAcai.ingredientes.find(
+										pedidoCupuacu.ingredientes.find(
 											(ingredient) => ingredient === elementCamelized
 										)
 											? false
@@ -105,7 +108,7 @@ function Cupuacu() {
 								name="valor-tamanho"
 								onChange={(element) => listenRadio(element)}
 								defaultChecked
-								disabled={pedidoAcai.ingredientes.length > 3}
+								disabled={pedidoCupuacu.ingredientes.length > 3}
 							/>
 							<label className="label-checkbox" htmlFor="tamanho-pequeno">
 								300ML - R$ 12,00
@@ -122,7 +125,7 @@ function Cupuacu() {
 								id="tamanho-medio"
 								name="valor-tamanho"
 								onChange={(element) => listenRadio(element)}
-								disabled={pedidoAcai.ingredientes.length > 5}
+								disabled={pedidoCupuacu.ingredientes.length > 5}
 							/>
 							<label className="label-checkbox" htmlFor="tamanho-medio">
 								500ML - R$ 18,00
@@ -139,7 +142,7 @@ function Cupuacu() {
 								id="tamanho-grande"
 								name="valor-tamanho"
 								onChange={(element) => listenRadio(element)}
-								disabled={pedidoAcai.ingredientes.length > 8}
+								disabled={pedidoCupuacu.ingredientes.length > 8}
 							/>
 							<label className="label-checkbox" htmlFor="tamanho-grande">
 								750ML - R$ 24,00
@@ -156,7 +159,7 @@ function Cupuacu() {
 								id="tamanho-extra-grande"
 								name="valor-tamanho"
 								onChange={(element) => listenRadio(element)}
-								disabled={pedidoAcai.ingredientes.length > 10}
+								disabled={pedidoCupuacu.ingredientes.length > 10}
 							/>
 							<label className="label-checkbox" htmlFor="tamanho-extra-grande">
 								1 Litro - R$ 30,00
@@ -173,7 +176,7 @@ function Cupuacu() {
 					onChange={(element) => listenTextArea(element)}
 					maxLength="150"
 				/>
-				<button className="send-btn">Adicionar</button>
+				<SendButton cartInfo={{ cupuacu: pedidoCupuacu }} />
 			</main>
 		</>
 	)
