@@ -8,6 +8,7 @@ import {
 	capitalizerFirstLetter,
 	toCamelCase,
 } from '../ultils/cardapio'
+import SendButton from '../components/SendButton'
 
 function Cupuacu() {
 	const pedidoCupuacuInicial = {
@@ -175,7 +176,7 @@ function Cupuacu() {
 					onChange={(element) => listenTextArea(element)}
 					maxLength="150"
 				/>
-				<button className="send-btn">Adicionar</button>
+				<SendButton />
 			</main>
 		</>
 	)
