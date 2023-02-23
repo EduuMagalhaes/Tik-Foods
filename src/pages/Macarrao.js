@@ -125,7 +125,7 @@ function Macarrao() {
 					onChange={(element) => listenTextArea(element)}
 					maxLength="150"
 				/>
-				<SendButton />
+				<SendButton cartInfo={{ macarrao: pedidoMacarrao }} />
 			</main>
 		</>
 	)

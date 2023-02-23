@@ -176,7 +176,7 @@ function Cupuacu() {
 					onChange={(element) => listenTextArea(element)}
 					maxLength="150"
 				/>
-				<SendButton />
+				<SendButton cartInfo={{ cupuacu: pedidoCupuacu }} />
 			</main>
 		</>
 	)

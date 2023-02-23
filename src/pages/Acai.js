@@ -174,7 +174,7 @@ function Acai() {
 					onChange={(element) => listenTextArea(element)}
 					maxLength="150"
 				/>
-				<SendButton />
+				<SendButton cartInfo={{ acai: pedidoAcai }} />
 			</main>
 		</>
 	)
