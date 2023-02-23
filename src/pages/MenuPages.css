@@ -204,4 +204,9 @@ label::first-letter {
 	border: 2px solid var(--purple);
 	border-radius: 4px;
 	padding: 8px 30px;
+	cursor: pointer;
+	transition: ease-in-out 300ms;
+}
+.send-btn:active {
+	transform: scale(1.1);
 }
