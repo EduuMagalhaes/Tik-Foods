@@ -15,6 +15,8 @@ function Macarrao() {
 		ingredientes: [],
 		tamanho: 'grande',
 		observacao: '',
+		type: 'macarrao',
+		img: pastaIcon
 	}
 
 	const [pedidoMacarrao, setPedidoMacarrao] = useState(pedidoMacarraoInicial)
@@ -125,7 +127,7 @@ function Macarrao() {
 					onChange={(element) => listenTextArea(element)}
 					maxLength="150"
 				/>
-				<SendButton cartInfo={{ macarrao: pedidoMacarrao }} />
+				<SendButton cartInfo={ pedidoMacarrao } />
 			</main>
 		</>
 	)

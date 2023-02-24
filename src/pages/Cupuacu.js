@@ -4,7 +4,7 @@ import Navigation from '../components/Navigation'
 import './MenuPages.css'
 import cupuacuIcon from '../assets/cupuacu.jpg'
 import {
-	acaiIngredients,
+	additional,
 	capitalizerFirstLetter,
 	toCamelCase,
 } from '../ultils/cardapio'
@@ -15,6 +15,8 @@ function Cupuacu() {
 		ingredientes: [],
 		tamanho: 'pequeno',
 		observacao: '',
+		type: 'cupuacu',
+		img: cupuacuIcon
 	}
 
 	const [pedidoCupuacu, setPedidoCupuacu] = useState(pedidoCupuacuInicial)
@@ -67,7 +69,7 @@ function Cupuacu() {
 				</div>
 				<h2>Adicionais</h2>
 				<div className="ingredients">
-					{acaiIngredients.map((element) => {
+					{additional.map((element) => {
 						const elementCamelized = toCamelCase(element)
 						const elementCapitalized = capitalizerFirstLetter(element)
 						return (
@@ -176,7 +178,7 @@ function Cupuacu() {
 					onChange={(element) => listenTextArea(element)}
 					maxLength="150"
 				/>
-				<SendButton cartInfo={{ cupuacu: pedidoCupuacu }} />
+				<SendButton cartInfo={ pedidoCupuacu } />
 			</main>
 		</>
 	)
