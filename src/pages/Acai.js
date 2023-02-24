@@ -4,7 +4,7 @@ import Navigation from '../components/Navigation'
 import './MenuPages.css'
 import acaiIcon from '../assets/acai-icon.png'
 import {
-	acaiIngredients,
+	additional,
 	capitalizerFirstLetter,
 	toCamelCase,
 } from '../ultils/cardapio'
@@ -15,6 +15,8 @@ function Acai() {
 		ingredientes: [],
 		tamanho: 'pequeno',
 		observacao: '',
+		type: 'acai',
+		img: acaiIcon
 	}
 
 	const [pedidoAcai, setPedidoAcai] = useState(pedidoAcaiInicial)
@@ -65,7 +67,7 @@ function Acai() {
 				</div>
 				<h2>Adicionais</h2>
 				<div className="ingredients">
-					{acaiIngredients.map((element) => {
+					{additional.map((element) => {
 						const elementCamelized = toCamelCase(element)
 						const elementCapitalized = capitalizerFirstLetter(element)
 						return (
@@ -174,7 +176,7 @@ function Acai() {
 					onChange={(element) => listenTextArea(element)}
 					maxLength="150"
 				/>
-				<SendButton cartInfo={{ acai: pedidoAcai }} />
+				<SendButton cartInfo={ pedidoAcai } />
 			</main>
 		</>
 	)

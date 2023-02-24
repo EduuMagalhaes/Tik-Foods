@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '../components/Header'
 import Navigation from '../components/Navigation'
-// import OrdersContext from '../context/orders'
+import { useNavigate } from 'react-router-dom'
 
 function Home() {
+
+	const navigate = useNavigate()
+
+	useEffect(() => {
+		navigate('/acai')
+	})	
+
 	return (
 		<div>
 			<Header />
